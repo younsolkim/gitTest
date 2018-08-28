@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+	integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+	crossorigin="anonymous">
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<style>
+ul {
+	overflow: hidden;
+}
+
+li {
+	list-style: none;
+	float: left;
+	padding: 5px 10px;
+	border: red solid 1px;
+	border-radius: 50%;
+}
+
+.content {
+	display: none;
+}
+
+.active {
+	background-color: navy;
+	color: white;
+	font-weight: bolder;
+}
+</style>
+<script>
+	$(document).ready(function() {
+		$('.content:first').show();
+		$('li').click(function() {
+			var ix = $(this).index();
+			$('.content').hide();
+			$('.content').eq(ix).show();
+
+			$('li').removeClass('active');
+			$(this).addClass('active');
+		})
+	});
+</script>
+</head>
+<body>
+
+	<ul>
+		<li class="active">tab1</li>
+		<li>tab2</li>
+		<li>tab3</li>
+	</ul>
+
+	<hr>
+
+	<div class="content">탭1의 내용입니다.</div>
+	<div class="content">탭2의 내용입니다.</div>
+	<div class="content">탭3의 내용입니다.</div>
+</body>
+</html>
